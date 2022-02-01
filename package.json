@@ -1,0 +1,28 @@
+{
+  "name": "nodecg-vue-composable",
+  "version": "0.1.0",
+  "description": "A set of Vue composables for interacting more predictably with NodeCG replicants.",
+  "main": "lib/index.js",
+  "author": {
+    "name": "Daniel Shields",
+    "email": "hello@danielshields.uk"
+  },
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "clone": "^2.1.2",
+    "vue-demi": "^0.12.1"
+  },
+  "peerDependencies": {
+    "@vue/composition-api": "^1.4.0",
+    "vue": "^2.0.0 || >=3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@vue/composition-api": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "vue": "^3.0.0"
+  }
+}
