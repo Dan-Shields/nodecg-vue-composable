@@ -17,7 +17,7 @@ Returns an object with the following properties:
 - `upToDate`: a `ref` bool indicating if the replicant has been updated since the local copy was first changed (if true saving will overwrite a change from elsewhere)
 - `save()`: a function to commit the locally current value to the replicant
 - `revert()`: a function to set `data` to the replicant value (clearing local changes)
-- `loadDefault()`: a function to reset the replicant to its default value
+- `loadDefault()`: a function to reset the local value to the default value of the replicant
 - `oldData`: a readonly `ref` of the latest replicant value
 
 Update the value (`data`) programatically or in a template binding and commit it with `save()`.
