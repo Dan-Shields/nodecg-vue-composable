@@ -14,7 +14,7 @@ A (sort-of) two-way binding that keeps a separate copy of the latest replicant v
 Returns an object with the following properties:
 - `data`: a `ref` that stores the current local value
 - `changed`: a `ref` bool indicating if the local value is different to the replicant value
-- `upToDate`: a `ref` bool indicating if the replicant has been updated since the local copy was first changed (if true saving will overwrite a change from elsewhere)
+- `upToDate`: a `ref` bool indicating if the replicant has been updated since the local copy was first changed (i.e. if true, saving will overwrite a change from elsewhere)
 - `save()`: a function to commit the locally current value to the replicant
 - `revert()`: a function to set `data` to the replicant value (clearing local changes)
 - `loadDefault()`: a function to reset the local value to the default value of the replicant
