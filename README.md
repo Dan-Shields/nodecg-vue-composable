@@ -2,8 +2,6 @@
 ### A set of Vue composables for interacting more predictably with NodeCG replicants.
 #### Works with Vue 2 & Vue 3 thanks to [vue-demi](https://github.com/vueuse/vue-demi).
 
----
-
 Using a `ReactiveReplicant` is a happy medium between manually syncing a vue reactive value with a nodecg replicant on every change and not using reactivity at all. It forces you to be explicit about when a replicant should be updated while still providing reactivity for easy `v-model` binding.
 
 ## Usage
@@ -30,18 +28,18 @@ If the local value is out of sync when a new value comes in from the replicant, 
 
 ```html
 <template>
-	<div>
-		<input v-model="lowerThird.data" />
-		<button :disabled="!lowerThird.changed" @click="lowerThird.save()">
-			SAVE
-		</button>
-		<button :disabled="!lowerThird.changed" @click="lowerThird.revert()">
-			REVERT CHANGES
-		</button>
-		<button @click="lowerThird.loadDefault()">
-			CLEAR
-		</button>
-	</div>
+    <div>
+        <input v-model="lowerThird.data" />
+        <button :disabled="!lowerThird.changed" @click="lowerThird.save()">
+            SAVE
+        </button>
+        <button :disabled="!lowerThird.changed" @click="lowerThird.revert()">
+            REVERT CHANGES
+        </button>
+        <button @click="lowerThird.loadDefault()">
+            CLEAR
+        </button>
+    </div>
 </template>
 
 <script>
@@ -49,13 +47,13 @@ import { defineComponent } from 'vue' // or '@vue/composition-api' with vue 2
 import { ReactiveReplicant } from 'nodecg-vue-composable'
 
 export default defineComponent({
-	setup() {
-		const lowerThird = ReactiveReplicant('lowerThird', { defaultValue: '' })
+    setup() {
+        const lowerThird = ReactiveReplicant('lowerThird', { defaultValue: '' })
 
-		return {
-			lowerThird
-		}
-	}
+        return {
+            lowerThird
+        }
+    }
 })
 </script>
 
@@ -68,23 +66,23 @@ A read-only binding to an asset replicant with the name `assets:<name>`.
 #### Example
 ```html
 <template>
-	<div>
-		<select v-model="logo.data">
-			<option disabled value="">Select a logo...</option>
-			<option v-for="logoAsset in logos" :value="logoAsset.url">
-				{{ logoAsset.name }}
-			</option>
-		</select>
-		<button :disabled="!logo.changed" @click="logo.save()">
-			SAVE
-		</button>
-		<button :disabled="!logo.changed" @click="logo.revert()">
-			REVERT CHANGES
-		</button>
-		<button @click="logo.loadDefault()">
-			CLEAR
-		</button>
-	</div>
+    <div>
+        <select v-model="logo.data">
+            <option disabled value="">Select a logo...</option>
+            <option v-for="logoAsset in logos" :value="logoAsset.url">
+                {{ logoAsset.name }}
+            </option>
+        </select>
+        <button :disabled="!logo.changed" @click="logo.save()">
+            SAVE
+        </button>
+        <button :disabled="!logo.changed" @click="logo.revert()">
+            REVERT CHANGES
+        </button>
+        <button @click="logo.loadDefault()">
+            CLEAR
+        </button>
+    </div>
 </template>
 
 <script>
@@ -92,15 +90,15 @@ import { defineComponent } from 'vue' // or '@vue/composition-api' with vue 2
 import { ReactiveReplicant, AssetReplicant } from 'nodecg-vue-composable'
 
 export default defineComponent({
-	setup() {
-		const logo = ReactiveReplicant('logo', { defaultValue: null })
-		const logos = AssetReplicant('logos')
+    setup() {
+        const logo = ReactiveReplicant('logo', { defaultValue: null })
+        const logos = AssetReplicant('logos')
 
-		return {
-			logo,
-			logos
-		}
-	}
+        return {
+            logo,
+            logos
+        }
+    }
 })
 </script>
 
