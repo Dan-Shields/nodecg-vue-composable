@@ -2,12 +2,12 @@
 ### A set of Vue composables for interacting more predictably with NodeCG replicants.
 #### Works with Vue 2 & Vue 3 thanks to [vue-demi](https://github.com/vueuse/vue-demi).
 
-Using a `ReactiveReplicant` is a happy medium between manually syncing a vue reactive value with a nodecg replicant on every change and not using reactivity at all. It forces you to be explicit about when a replicant should be updated while still providing reactivity for easy `v-model` binding.
+`useReplicant` is a happy medium between manually syncing a vue reactive value with a nodecg replicant on every change and not using reactivity at all. It forces you to be explicit about when a replicant should be updated while still providing reactivity for easy `v-model` binding.
 
 ## Usage
 **Note**: use of composables requires the [Vue Composition API](https://v3.vuejs.org/guide/composition-api-introduction.html), either importing it directly from Vue 3 or using the `@vue/composition-api` package with Vue 2. You are also required to create components using `defineComponent`.
 
-### `ReactiveReplicant(name, namespace, opts)`
+### `useReplicant(name, namespace, opts)`
 
 A (sort-of) two-way binding that keeps a separate copy of the latest replicant value locally which you're free to modify. Doesn't update the replicant itself until you explicitly tell it to.
 
@@ -44,11 +44,11 @@ If the local value is out of sync when a new value comes in from the replicant, 
 
 <script>
 import { defineComponent } from 'vue' // or '@vue/composition-api' with vue 2
-import { ReactiveReplicant } from 'nodecg-vue-composable'
+import { useReplicant } from 'nodecg-vue-composable'
 
 export default defineComponent({
     setup() {
-        const lowerThird = ReactiveReplicant('lowerThird', { defaultValue: '' })
+        const lowerThird = useReplicant('lowerThird', { defaultValue: '' })
 
         return {
             lowerThird
@@ -60,7 +60,7 @@ export default defineComponent({
 <template>
 ```
 
-### `AssetReplicant(name)`
+### `useAssetReplicant(name)`
 A read-only binding to an asset replicant with the name `assets:<name>`.
 
 #### Example
@@ -87,12 +87,12 @@ A read-only binding to an asset replicant with the name `assets:<name>`.
 
 <script>
 import { defineComponent } from 'vue' // or '@vue/composition-api' with vue 2
-import { ReactiveReplicant, AssetReplicant } from 'nodecg-vue-composable'
+import { useReplicant, useAssetReplicant } from 'nodecg-vue-composable'
 
 export default defineComponent({
     setup() {
-        const logo = ReactiveReplicant('logo', { defaultValue: null })
-        const logos = AssetReplicant('logos')
+        const logo = useReplicant('logo', { defaultValue: null })
+        const logos = useAssetReplicant('logos')
 
         return {
             logo,
@@ -104,22 +104,22 @@ export default defineComponent({
 
 <template>
 ```
-### `DynamicReactiveReplicant(name, namespace, opts)`
-If you want to use a name that is itself reactive use a `DynamicReactiveReplicant` (name suggestions welcome).
+### `useDynamicReplicant(name, namespace, opts)`
+If you want to use a name that is itself reactive use a `useDynamicReplicant` (name suggestions welcome).
 
-Only usage difference with `ReactiveReplicant` is that it returns a `ref` that wraps the reactive, so if you want to use it inside the setup function or another composable you need to access the `value` before `data`. Usage inside the template is unaffected as the unwrapping will be done for you.
+Only usage difference with `useReplicant` is that it returns a `ref` that wraps the reactive, so if you want to use it inside the setup function or another composable you need to access the `value` before `data`. Usage inside the template is unaffected as the unwrapping will be done for you.
 
 I.e. instead of:
 
 ```javascript
-const rep = ReactiveReplicant('repName')
+const rep = useReplicant('repName')
 rep.data = '....'
 ```
 You need to do:
 ```javascript
 const repName = toRef(props, 'repName')  // example reactive name
 
-const rep = DynamicReactiveReplicant(repName)
+const rep = useDynamicReplicant(repName)
 rep.value.data = '....'
 ```
 
@@ -137,6 +137,6 @@ import VueCompositionApi from '@vue/composition-api'
 Vue.use(VueCompositionApi)
 ```
 ## Todo
-- Add TypeScript typings
+- ~~Add TypeScript typings~~
 - Write some tests
-- Come up with a better name for DynamicReactiveReplicant
+- ~~Come up with a better name for DynamicReactiveReplicant~~
