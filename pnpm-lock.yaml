@@ -1,15 +1,21 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@types/clone': ^2.1.1
   clone: ^2.1.2
+  nodecg-types: ^1.8.3
+  typescript: ^4.5.5
   vue: ^3.0.0
   vue-demi: ^0.12.1
 
 dependencies:
+  '@types/clone': registry.npmjs.org/@types/clone/2.1.1
   clone: 2.1.2
   vue-demi: 0.12.1_vue@3.2.29
 
 devDependencies:
+  nodecg-types: registry.npmjs.org/nodecg-types/1.8.3
+  typescript: registry.npmjs.org/typescript/4.5.5
   vue: 3.2.29
 
 packages:
@@ -178,4 +184,201 @@ packages:
       '@vue/runtime-dom': 3.2.29
       '@vue/server-renderer': 3.2.29_vue@3.2.29
       '@vue/shared': 3.2.29
+    dev: true
+
+  registry.npmjs.org/@socket.io/component-emitter/3.0.0:
+    resolution: {integrity: sha512-2pTGuibAXJswAPJjaKisthqS/NOK5ypG4LYT6tEAV0S/mxW0zOIvYvGK0V8w8+SHxAm6vRMSjqSalFXeBAqs+Q==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@socket.io/component-emitter/-/component-emitter-3.0.0.tgz}
+    name: '@socket.io/component-emitter'
+    version: 3.0.0
+    dev: true
+
+  registry.npmjs.org/@types/body-parser/1.19.2:
+    resolution: {integrity: sha512-ALYone6pm6QmwZoAgeyNksccT9Q4AWZQ6PvfwR37GT6r6FWUPguq6sUmNGSMV2Wr761oQoBxwGGa6DR5o1DC9g==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/body-parser/-/body-parser-1.19.2.tgz}
+    name: '@types/body-parser'
+    version: 1.19.2
+    dependencies:
+      '@types/connect': registry.npmjs.org/@types/connect/3.4.35
+      '@types/node': registry.npmjs.org/@types/node/16.11.22
+    dev: true
+
+  registry.npmjs.org/@types/clone/2.1.1:
+    resolution: {integrity: sha512-BZIU34bSYye0j/BFcPraiDZ5ka6MJADjcDVELGf7glr9K+iE8NYVjFslJFVWzskSxkLLyCrSPScE82/UUoBSvg==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/clone/-/clone-2.1.1.tgz}
+    name: '@types/clone'
+    version: 2.1.1
+    dev: false
+
+  registry.npmjs.org/@types/connect/3.4.35:
+    resolution: {integrity: sha512-cdeYyv4KWoEgpBISTxWvqYsVy444DOqehiF3fM3ne10AmJ62RSyNkUnxMJXHQWRQQX2eR94m5y1IZyDwBjV9FQ==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/connect/-/connect-3.4.35.tgz}
+    name: '@types/connect'
+    version: 3.4.35
+    dependencies:
+      '@types/node': registry.npmjs.org/@types/node/16.11.22
+    dev: true
+
+  registry.npmjs.org/@types/createjs-lib/0.0.29:
+    resolution: {integrity: sha1-+uguO6hgZmOxkOeJzsfZxyj8Qdc=, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/createjs-lib/-/createjs-lib-0.0.29.tgz}
+    name: '@types/createjs-lib'
+    version: 0.0.29
+    dev: true
+
+  registry.npmjs.org/@types/engine.io/3.1.7:
+    resolution: {integrity: sha512-qNjVXcrp+1sS8YpRUa714r0pgzOwESdW5UjHL7D/2ZFdBX0BXUXtg1LUrp+ylvqbvMcMWUy73YpRoxPN2VoKAQ==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/engine.io/-/engine.io-3.1.7.tgz}
+    name: '@types/engine.io'
+    version: 3.1.7
+    dependencies:
+      '@types/node': registry.npmjs.org/@types/node/16.11.22
+    dev: true
+
+  registry.npmjs.org/@types/express-serve-static-core/4.17.28:
+    resolution: {integrity: sha512-P1BJAEAW3E2DJUlkgq4tOL3RyMunoWXqbSCygWo5ZIWTjUgN1YnaXWW4VWl/oc8vs/XoYibEGBKP0uZyF4AHig==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/express-serve-static-core/-/express-serve-static-core-4.17.28.tgz}
+    name: '@types/express-serve-static-core'
+    version: 4.17.28
+    dependencies:
+      '@types/node': registry.npmjs.org/@types/node/16.11.22
+      '@types/qs': registry.npmjs.org/@types/qs/6.9.7
+      '@types/range-parser': registry.npmjs.org/@types/range-parser/1.2.4
+    dev: true
+
+  registry.npmjs.org/@types/express/4.17.13:
+    resolution: {integrity: sha512-6bSZTPaTIACxn48l50SR+axgrqm6qXFIxrdAKaG6PaJk3+zuUr35hBlgT7vOmJcum+OEaIBLtHV/qloEAFITeA==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/express/-/express-4.17.13.tgz}
+    name: '@types/express'
+    version: 4.17.13
+    dependencies:
+      '@types/body-parser': registry.npmjs.org/@types/body-parser/1.19.2
+      '@types/express-serve-static-core': registry.npmjs.org/@types/express-serve-static-core/4.17.28
+      '@types/qs': registry.npmjs.org/@types/qs/6.9.7
+      '@types/serve-static': registry.npmjs.org/@types/serve-static/1.13.10
+    dev: true
+
+  registry.npmjs.org/@types/mime/1.3.2:
+    resolution: {integrity: sha512-YATxVxgRqNH6nHEIsvg6k2Boc1JHI9ZbH5iWFFv/MTkchz3b1ieGDa5T0a9RznNdI0KhVbdbWSN+KWWrQZRxTw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/mime/-/mime-1.3.2.tgz}
+    name: '@types/mime'
+    version: 1.3.2
+    dev: true
+
+  registry.npmjs.org/@types/node/16.11.22:
+    resolution: {integrity: sha512-DYNtJWauMQ9RNpesl4aVothr97/tIJM8HbyOXJ0AYT1Z2bEjLHyfjOBPAQQVMLf8h3kSShYfNk8Wnto8B2zHUA==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/node/-/node-16.11.22.tgz}
+    name: '@types/node'
+    version: 16.11.22
+    dev: true
+
+  registry.npmjs.org/@types/preloadjs/0.6.32:
+    resolution: {integrity: sha1-Es/3x/kuODingNQ4zknIzsmBgw0=, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/preloadjs/-/preloadjs-0.6.32.tgz}
+    name: '@types/preloadjs'
+    version: 0.6.32
+    dependencies:
+      '@types/createjs-lib': registry.npmjs.org/@types/createjs-lib/0.0.29
+    dev: true
+
+  registry.npmjs.org/@types/qs/6.9.7:
+    resolution: {integrity: sha512-FGa1F62FT09qcrueBA6qYTrJPVDzah9a+493+o2PCXsesWHIn27G98TsSMs3WPNbZIEj4+VJf6saSFpvD+3Zsw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/qs/-/qs-6.9.7.tgz}
+    name: '@types/qs'
+    version: 6.9.7
+    dev: true
+
+  registry.npmjs.org/@types/range-parser/1.2.4:
+    resolution: {integrity: sha512-EEhsLsD6UsDM1yFhAvy0Cjr6VwmpMWqFBCb9w07wVugF7w9nfajxLuVmngTIpgS6svCnm6Vaw+MZhoDCKnOfsw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/range-parser/-/range-parser-1.2.4.tgz}
+    name: '@types/range-parser'
+    version: 1.2.4
+    dev: true
+
+  registry.npmjs.org/@types/serve-static/1.13.10:
+    resolution: {integrity: sha512-nCkHGI4w7ZgAdNkrEu0bv+4xNV/XDqW+DydknebMOQwkpDGx8G+HTlj7R7ABI8i8nKxVw0wtKPi1D+lPOkh4YQ==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/serve-static/-/serve-static-1.13.10.tgz}
+    name: '@types/serve-static'
+    version: 1.13.10
+    dependencies:
+      '@types/mime': registry.npmjs.org/@types/mime/1.3.2
+      '@types/node': registry.npmjs.org/@types/node/16.11.22
+    dev: true
+
+  registry.npmjs.org/@types/socket.io-client/1.4.36:
+    resolution: {integrity: sha512-ZJWjtFBeBy1kRSYpVbeGYTElf6BqPQUkXDlHHD4k/42byCN5Rh027f4yARHCink9sKAkbtGZXEAmR0ZCnc2/Ag==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/socket.io-client/-/socket.io-client-1.4.36.tgz}
+    name: '@types/socket.io-client'
+    version: 1.4.36
+    dev: true
+
+  registry.npmjs.org/@types/socket.io-parser/3.0.0:
+    resolution: {integrity: sha512-Ry/rbTE6HQNL9eu3LpL1Ocup5VexXu1bSSGlSho/IR5LuRc8YvxwSNJ3JxqTltVJEATLbZkMQETSbxfKNgp4Ew==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/socket.io-parser/-/socket.io-parser-3.0.0.tgz}
+    name: '@types/socket.io-parser'
+    version: 3.0.0
+    deprecated: This is a stub types definition. socket.io-parser provides its own type definitions, so you do not need this installed.
+    dependencies:
+      socket.io-parser: registry.npmjs.org/socket.io-parser/4.1.1
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  registry.npmjs.org/@types/socket.io/2.1.13:
+    resolution: {integrity: sha512-JRgH3nCgsWel4OPANkhH8TelpXvacAJ9VeryjuqCDiaVDMpLysd6sbt0dr6Z15pqH3p2YpOT3T1C5vQ+O/7uyg==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/socket.io/-/socket.io-2.1.13.tgz}
+    name: '@types/socket.io'
+    version: 2.1.13
+    dependencies:
+      '@types/engine.io': registry.npmjs.org/@types/engine.io/3.1.7
+      '@types/node': registry.npmjs.org/@types/node/16.11.22
+      '@types/socket.io-parser': registry.npmjs.org/@types/socket.io-parser/3.0.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  registry.npmjs.org/@types/soundjs/0.6.28:
+    resolution: {integrity: sha512-K3ktwPvYfQrH+qGEe1tgxC5o4rJC7CVxQmL9Cz9tgVq0oW99PmPfRp1F7YXELibCvV3lieD4E0sUZvnDEKWaPg==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/soundjs/-/soundjs-0.6.28.tgz}
+    name: '@types/soundjs'
+    version: 0.6.28
+    dependencies:
+      '@types/createjs-lib': registry.npmjs.org/@types/createjs-lib/0.0.29
+      '@types/preloadjs': registry.npmjs.org/@types/preloadjs/0.6.32
+    dev: true
+
+  registry.npmjs.org/debug/4.3.3:
+    resolution: {integrity: sha512-/zxw5+vh1Tfv+4Qn7a5nsbcJKPaSvCDhojn6FEl9vupwK2VCSDtEiEtqr8DFtzYFOdz63LBkxec7DYuc2jon6Q==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/debug/-/debug-4.3.3.tgz}
+    name: debug
+    version: 4.3.3
+    engines: {node: '>=6.0'}
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
+    dependencies:
+      ms: registry.npmjs.org/ms/2.1.2
+    dev: true
+
+  registry.npmjs.org/ms/2.1.2:
+    resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/ms/-/ms-2.1.2.tgz}
+    name: ms
+    version: 2.1.2
+    dev: true
+
+  registry.npmjs.org/nodecg-types/1.8.3:
+    resolution: {integrity: sha512-ZK5HsYjoX73XMsI5BboQSvquDWcjlUdG0gwqNbWuowVeJWCZ6KGAE2ZLL6o1hQ12YIlKLcqb/6Jju/y8CBghOw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/nodecg-types/-/nodecg-types-1.8.3.tgz}
+    name: nodecg-types
+    version: 1.8.3
+    dependencies:
+      '@types/express': registry.npmjs.org/@types/express/4.17.13
+      '@types/node': registry.npmjs.org/@types/node/16.11.22
+      '@types/socket.io': registry.npmjs.org/@types/socket.io/2.1.13
+      '@types/socket.io-client': registry.npmjs.org/@types/socket.io-client/1.4.36
+      '@types/soundjs': registry.npmjs.org/@types/soundjs/0.6.28
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  registry.npmjs.org/socket.io-parser/4.1.1:
+    resolution: {integrity: sha512-USQVLSkDWE5nbcY760ExdKaJxCE65kcsG/8k5FDGZVVxpD1pA7hABYXYkCUvxUuYYh/+uQw0N/fvBzfT8o07KA==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/socket.io-parser/-/socket.io-parser-4.1.1.tgz}
+    name: socket.io-parser
+    version: 4.1.1
+    engines: {node: '>=10.0.0'}
+    dependencies:
+      '@socket.io/component-emitter': registry.npmjs.org/@socket.io/component-emitter/3.0.0
+      debug: registry.npmjs.org/debug/4.3.3
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  registry.npmjs.org/typescript/4.5.5:
+    resolution: {integrity: sha512-TCTIul70LyWe6IJWT8QSYeA54WQe8EjQFU4wY52Fasj5UKx88LNYKCgBEHcOMOrFF1rKGbD8v/xcNWVUq9SymA==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/typescript/-/typescript-4.5.5.tgz}
+    name: typescript
+    version: 4.5.5
+    engines: {node: '>=4.2.0'}
+    hasBin: true
     dev: true
