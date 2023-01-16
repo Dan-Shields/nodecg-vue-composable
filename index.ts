@@ -29,8 +29,8 @@ function useReplicantRaw<T>(name: string, namespace: string | NodeCG.Replicant.O
     let rep = typeof namespace === 'string' ? nodecg.Replicant<T>(name, namespace, opts) : nodecg.Replicant<T>(name, opts)
 
     // TODO: work out why this assertion is necessary
-    const newVal = ref(clone(opts?.defaultValue)) as Ref<T | undefined>
-    const oldVal = ref(clone(opts?.defaultValue)) as Ref<T | undefined>
+    const newVal = ref(clone(opts && "defaultValue" in opts ? opts.defaultValue : undefined)) as Ref<T | undefined>
+    const oldVal = ref(clone(opts && "defaultValue" in opts ? opts.defaultValue : undefined)) as Ref<T | undefined>
     const changed = ref(false)
     const upToDate = ref(true)
 
@@ -63,7 +63,7 @@ function useReplicantRaw<T>(name: string, namespace: string | NodeCG.Replicant.O
         newVal.value = clone(oldVal.value)
     }
     function loadDefault() {
-        newVal.value = clone(opts?.defaultValue)
+        newVal.value = clone(opts && "defaultValue" in opts ? opts.defaultValue : undefined)
     }
 
     const reactiveReplicant: ReactiveReplicant<T> = reactive({
