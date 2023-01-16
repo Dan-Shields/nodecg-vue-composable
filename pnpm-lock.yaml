@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@alvancamp/test-nodecg-types': ^1.9.26
+  '@alvancamp/test-nodecg-types': ^1.9.27
   '@types/clone': ^2.1.1
   clone: ^2.1.2
   typescript: ^4.9.4
@@ -14,14 +14,14 @@ dependencies:
   vue-demi: 0.13.11_vue@3.2.45
 
 devDependencies:
-  '@alvancamp/test-nodecg-types': 1.9.26
+  '@alvancamp/test-nodecg-types': 1.9.27
   typescript: 4.9.4
   vue: 3.2.45
 
 packages:
 
-  /@alvancamp/test-nodecg-types/1.9.26:
-    resolution: {integrity: sha512-4Y1DuNHwLphwukyldS5KoCGo/taxPTngJAiKwhVhi6a2bokCNNGZ/g/4BSvFa8FqjlpU9+OH2MSX/hxz3HQpOA==}
+  /@alvancamp/test-nodecg-types/1.9.27:
+    resolution: {integrity: sha512-i1g7ob6Z9LC5NtEFRF/8F3NY1NvVPvum3O5gEAW2gUR9AhMSXVqdmLzF0c6GQgvQOdShovE6P0A5dybcuc2XJQ==}
     dev: true
 
   /@babel/helper-string-parser/7.19.4:
