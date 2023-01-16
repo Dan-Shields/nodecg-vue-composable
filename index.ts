@@ -1,6 +1,7 @@
-import { ref, watch, isRef, reactive, computed, readonly, Ref, DeepReadonly } from 'vue-demi'
-import { ReplicantOptions } from 'nodecg-types/types/browser'
-import clone from 'clone'
+import NodeCG from '@alvancamp/test-nodecg-types';
+import '@alvancamp/test-nodecg-types/augment-window';
+import clone from 'clone';
+import { computed, DeepReadonly, isRef, reactive, readonly, ref, Ref, watch } from 'vue-demi';
 
 interface ReactiveReplicant<T> {
     data: T | undefined,
@@ -11,11 +12,11 @@ interface ReactiveReplicant<T> {
     loadDefault: () => void
 }
 
-export function useReplicant<T>(name: string, namespace: string | undefined, opts: ReplicantOptions<T> = {}) {
+export function useReplicant<T>(name: string, namespace: string | undefined, opts: NodeCG.Replicant.Options<T> = {}) {
     return useReplicantRaw(name, namespace, opts)?.reactiveReplicant
 }
 
-function useReplicantRaw<T>(name: string, namespace: string | ReplicantOptions<T> | undefined, opts: ReplicantOptions<T> | undefined) {
+function useReplicantRaw<T>(name: string, namespace: string | NodeCG.Replicant.Options<T> | undefined, opts: NodeCG.Replicant.Options<T> | undefined) {
 	if (isRef(name)) {
 		console.warn(`Tried to create a StaticReplicant using a reactive name (${name.value})`)
 		return null
@@ -80,7 +81,7 @@ function useReplicantRaw<T>(name: string, namespace: string | ReplicantOptions<T
     }
 }
 
-export function useDynamicReplicant<T>(name: Ref<string>, namespace: string, opts: ReplicantOptions<T> | undefined) {
+export function useDynamicReplicant<T>(name: Ref<string>, namespace: string, opts: NodeCG.Replicant.Options<T> | undefined) {
 	if (!isRef(name)) {
 		console.warn(`Tried to create a DynamicReplicant using a static name (${name})`)
 		return null
