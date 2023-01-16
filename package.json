@@ -16,7 +16,7 @@
   "dependencies": {
     "@types/clone": "^2.1.1",
     "clone": "^2.1.2",
-    "vue-demi": "^0.12.1"
+    "vue-demi": "^0.13.11"
   },
   "peerDependencies": {
     "@vue/composition-api": "^1.4.0",
@@ -28,8 +28,8 @@
     }
   },
   "devDependencies": {
-    "nodecg-types": "^1.8.3",
-    "typescript": "^4.5.5",
-    "vue": "^3.0.0"
+    "@alvancamp/test-nodecg-types": "^1.9.26",
+    "typescript": "^4.9.4",
+    "vue": "^3.2.45"
   }
 }
