@@ -91,7 +91,7 @@ export function useDynamicReplicant<T>(name: Ref<string>, namespace: string, opt
 
     function setReplicant(oldName?: string) {
         // remove old listeners when we change the name to prevent potential memory leaks
-        if (oldName && repRef.value) nodecg.Replicant(oldName).removeListener('change', repRef.value.listener)
+        if (oldName && repRef.value) nodecg.Replicant<T>(oldName).removeListener('change', repRef.value.listener)
 
         if (!(typeof name.value === 'string' || typeof name.value === 'number')) {
             repRef.value = null
