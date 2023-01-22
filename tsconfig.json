@@ -4,7 +4,6 @@
         "target": "es2017",
         "module": "esnext",
         "lib": ["ESNext", "DOM", "DOM.Iterable"],
-        "types": ["@alvancamp/test-nodecg-types/augment-window"],
         "moduleResolution": "node",
         "esModuleInterop": true,
         "strict": true,

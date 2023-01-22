@@ -1,3 +1,4 @@
+/// <reference types="@alvancamp/test-nodecg-types/augment-window" />
 import NodeCG from '@alvancamp/test-nodecg-types';
 import clone from 'clone';
 import { computed, DeepReadonly, isRef, reactive, readonly, ref, Ref, watch } from 'vue-demi';
