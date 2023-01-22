@@ -1,6 +1,7 @@
-import { ref, watch, isRef, reactive, computed, readonly, Ref, DeepReadonly } from 'vue-demi'
-import { ReplicantOptions } from 'nodecg-types/types/browser'
-import clone from 'clone'
+/// <reference types="@alvancamp/test-nodecg-types/augment-window" />
+import NodeCG from '@alvancamp/test-nodecg-types';
+import clone from 'clone';
+import { computed, DeepReadonly, isRef, reactive, readonly, ref, Ref, watch } from 'vue-demi';
 
 interface ReactiveReplicant<T> {
     data: T | undefined,
@@ -11,11 +12,11 @@ interface ReactiveReplicant<T> {
     loadDefault: () => void
 }
 
-export function useReplicant<T>(name: string, namespace: string | undefined, opts: ReplicantOptions<T> = {}) {
+export function useReplicant<T>(name: string, namespace: string | undefined, opts: NodeCG.Replicant.Options<T> = {}) {
     return useReplicantRaw(name, namespace, opts)?.reactiveReplicant
 }
 
-function useReplicantRaw<T>(name: string, namespace: string | ReplicantOptions<T> | undefined, opts: ReplicantOptions<T> | undefined) {
+function useReplicantRaw<T>(name: string, namespace: string | NodeCG.Replicant.Options<T> | undefined, opts: NodeCG.Replicant.Options<T> | undefined) {
 	if (isRef(name)) {
 		console.warn(`Tried to create a StaticReplicant using a reactive name (${name.value})`)
 		return null
@@ -28,8 +29,8 @@ function useReplicantRaw<T>(name: string, namespace: string | ReplicantOptions<T
     let rep = typeof namespace === 'string' ? nodecg.Replicant<T>(name, namespace, opts) : nodecg.Replicant<T>(name, opts)
 
     // TODO: work out why this assertion is necessary
-    const newVal = ref(clone(opts?.defaultValue)) as Ref<T | undefined>
-    const oldVal = ref(clone(opts?.defaultValue)) as Ref<T | undefined>
+    const newVal = ref(clone(opts && "defaultValue" in opts ? opts.defaultValue : undefined)) as Ref<T | undefined>
+    const oldVal = ref(clone(opts && "defaultValue" in opts ? opts.defaultValue : undefined)) as Ref<T | undefined>
     const changed = ref(false)
     const upToDate = ref(true)
 
@@ -62,7 +63,7 @@ function useReplicantRaw<T>(name: string, namespace: string | ReplicantOptions<T
         newVal.value = clone(oldVal.value)
     }
     function loadDefault() {
-        newVal.value = clone(opts?.defaultValue)
+        newVal.value = clone(opts && "defaultValue" in opts ? opts.defaultValue : undefined)
     }
 
     const reactiveReplicant: ReactiveReplicant<T> = reactive({
@@ -80,7 +81,7 @@ function useReplicantRaw<T>(name: string, namespace: string | ReplicantOptions<T
     }
 }
 
-export function useDynamicReplicant<T>(name: Ref<string>, namespace: string, opts: ReplicantOptions<T> | undefined) {
+export function useDynamicReplicant<T>(name: Ref<string>, namespace: string, opts: NodeCG.Replicant.Options<T> | undefined) {
 	if (!isRef(name)) {
 		console.warn(`Tried to create a DynamicReplicant using a static name (${name})`)
 		return null
@@ -90,7 +91,7 @@ export function useDynamicReplicant<T>(name: Ref<string>, namespace: string, opt
 
     function setReplicant(oldName?: string) {
         // remove old listeners when we change the name to prevent potential memory leaks
-        if (oldName && repRef.value) nodecg.Replicant(oldName).removeListener('change', repRef.value.listener)
+        if (oldName && repRef.value) nodecg.Replicant<T>(oldName).removeListener('change', repRef.value.listener)
 
         if (!(typeof name.value === 'string' || typeof name.value === 'number')) {
             repRef.value = null
