@@ -28,9 +28,12 @@ function useReplicantRaw<T>(name: string, namespace: string | NodeCG.Replicant.O
 
     let rep = typeof namespace === 'string' ? nodecg.Replicant<T>(name, namespace, opts) : nodecg.Replicant<T>(name, opts)
 
-    // TODO: work out why this assertion is necessary
-    const newVal = ref(clone(opts && "defaultValue" in opts ? opts.defaultValue : undefined)) as Ref<T | undefined>
-    const oldVal = ref(clone(opts && "defaultValue" in opts ? opts.defaultValue : undefined)) as Ref<T | undefined>
+    // Vue wants to unwrap nested objects when declared in refs
+    const newVal = ref<T>();
+    const oldVal = ref<T>();
+    newVal.value = clone(opts && "defaultValue" in opts ? opts.defaultValue : undefined)
+    oldVal.value = clone(opts && "defaultValue" in opts ? opts.defaultValue : undefined)
+
     const changed = ref(false)
     const upToDate = ref(true)
 
