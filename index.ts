@@ -13,13 +13,12 @@ interface ReactiveReplicant<T> {
 }
 
 export function useReplicant<T>(name: string, namespace: string | undefined, opts: NodeCG.Replicant.Options<T> = {}) {
-    return useReplicantRaw(name, namespace, opts)?.reactiveReplicant
+    return useReplicantRaw(name, namespace, opts).reactiveReplicant
 }
 
 function useReplicantRaw<T>(name: string, namespace: string | NodeCG.Replicant.Options<T> | undefined, opts: NodeCG.Replicant.Options<T> | undefined) {
 	if (isRef(name)) {
 		console.warn(`Tried to create a StaticReplicant using a reactive name (${name.value})`)
-		return null
 	}
 
 	if (opts === undefined && typeof namespace !== 'string') {
@@ -87,7 +86,6 @@ function useReplicantRaw<T>(name: string, namespace: string | NodeCG.Replicant.O
 export function useDynamicReplicant<T>(name: Ref<string>, namespace: string, opts: NodeCG.Replicant.Options<T> | undefined) {
 	if (!isRef(name)) {
 		console.warn(`Tried to create a DynamicReplicant using a static name (${name})`)
-		return null
 	}
 
     const repRef: Ref<{ reactiveReplicant: ReactiveReplicant<T>, listener: (newRepVal: T | undefined, oldRepVal: T | undefined) => void } | null> = ref(null)
