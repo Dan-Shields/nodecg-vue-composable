@@ -28,8 +28,8 @@
     }
   },
   "devDependencies": {
-    "@nodecg/types": "^2.1.12",
+    "@alvancamp/test-nodecg-types": "^1.9.27",
     "typescript": "^4.9.4",
-    "vue": "^3.3.8"
+    "vue": "^3.2.45"
   }
 }

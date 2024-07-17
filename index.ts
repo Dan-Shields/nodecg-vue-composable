@@ -1,5 +1,5 @@
-/// <reference types="@nodecg/types/augment-window" />
-import NodeCG from '@nodecg/types';
+/// <reference types="@alvancamp/test-nodecg-types/augment-window" />
+import NodeCG from '@alvancamp/test-nodecg-types';
 import clone from 'clone';
 import { computed, DeepReadonly, isRef, reactive, readonly, ref, Ref, watch } from 'vue-demi';
 
@@ -111,12 +111,21 @@ export function useDynamicReplicant<T>(name: Ref<string>, namespace: string, opt
     return computed(() => repRef.value?.reactiveReplicant)
 }
 
+export interface Asset {
+    base: string,
+    namespace: string,
+    category: string,
+    ext: string,
+    name: string,
+    sum: string,
+    url: string
+}
 
 export function useAssetReplicant(name: string, namespace: string) {
-    const rep = nodecg.Replicant<NodeCG.AssetFile[]>(`assets:${name}`, namespace)
-    const newVal: Ref<NodeCG.AssetFile[]> = ref([])
+    const rep = nodecg.Replicant<Asset[]>(`assets:${name}`, namespace)
+    const newVal: Ref<Asset[]> = ref([])
 
-    rep.on('change', (newRepVal: NodeCG.AssetFile[] | null | undefined) => {
+    rep.on('change', (newRepVal: Asset[] | null | undefined) => {
         newVal.value = clone(newRepVal ?? [])
     })
 
