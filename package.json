@@ -1,6 +1,10 @@
 {
   "name": "nodecg-vue-composable",
-  "version": "1.2.0",
+
+  "version": "1.2.1",
+
+
+
   "description": "A set of Vue composables for interacting more predictably with NodeCG replicants.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -28,8 +32,8 @@
     }
   },
   "devDependencies": {
-    "@alvancamp/test-nodecg-types": "^1.9.27",
+    "@nodecg/types": "^2.1.12",
     "typescript": "^4.9.4",
-    "vue": "^3.2.45"
+    "vue": "^3.3.8"
   }
 }
