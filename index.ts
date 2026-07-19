@@ -12,11 +12,13 @@ interface ReactiveReplicant<T> {
     loadDefault: () => void
 }
 
-export function useReplicant<T>(name: string, namespace: string | undefined, opts: NodeCG.Replicant.Options<T> = {}) {
-    return useReplicantRaw(name, namespace, opts).reactiveReplicant
+type ReplicantOptions<T> = Parameters<typeof nodecg.Replicant<T>>[1];
+
+export function useReplicant<T>(name: string, namespace: string | undefined, opts: ReplicantOptions<T> = {}) {
+    return useReplicantRaw<T>(name, namespace, opts).reactiveReplicant
 }
 
-function useReplicantRaw<T>(name: string, namespace: string | NodeCG.Replicant.Options<T> | undefined, opts: NodeCG.Replicant.Options<T> | undefined) {
+function useReplicantRaw<T>(name: string, namespace: string | ReplicantOptions<T> | undefined, opts: ReplicantOptions<T> | undefined) {
 	if (isRef(name)) {
 		console.warn(`Tried to create a StaticReplicant using a reactive name (${name.value})`)
         throw Error(`Tried to create a StaticReplicant using a reactive name (${name.value})`)
@@ -84,7 +86,7 @@ function useReplicantRaw<T>(name: string, namespace: string | NodeCG.Replicant.O
     }
 }
 
-export function useDynamicReplicant<T>(name: Ref<string>, namespace: string, opts: NodeCG.Replicant.Options<T> | undefined) {
+export function useDynamicReplicant<T>(name: Ref<string>, namespace: string, opts: ReplicantOptions<T> | undefined) {
 	if (!isRef(name)) {
 		console.warn(`Tried to create a DynamicReplicant using a static name (${name})`)
         throw Error(`Tried to create a DynamicReplicant using a static name (${name})`)
@@ -113,10 +115,10 @@ export function useDynamicReplicant<T>(name: Ref<string>, namespace: string, opt
 
 
 export function useAssetReplicant(name: string, namespace: string) {
-    const rep = nodecg.Replicant<NodeCG.AssetFile[]>(`assets:${name}`, namespace)
-    const newVal: Ref<NodeCG.AssetFile[]> = ref([])
+    const rep = nodecg.Replicant<NodeCG.default.AssetFile[]>(`assets:${name}`, namespace)
+    const newVal: Ref<NodeCG.default.AssetFile[]> = ref([])
 
-    rep.on('change', (newRepVal: NodeCG.AssetFile[] | null | undefined) => {
+    rep.on('change', (newRepVal: NodeCG.default.AssetFile[] | null | undefined) => {
         newVal.value = clone(newRepVal ?? [])
     })
 
